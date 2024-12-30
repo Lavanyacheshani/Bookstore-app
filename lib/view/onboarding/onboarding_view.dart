@@ -33,7 +33,6 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     controller?.addListener(() {
