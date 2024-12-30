@@ -269,17 +269,17 @@ class _BookReadingViewState extends State<BookReadingView> {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
             child: SelectableText(
               """
-SHORTLY AFTER DARK ON THE AFTERNOON OF DECEMBER 5, 1997, an urgent message was relayed to a man named Yuri Trush at his home in Luchegorsk, a mid-sized mining town in Primorye Territory in Russia’s Far East, not far from the Chinese border. Primorye (Pri-mor-
-ya) is, among other things, the last stronghold of the Siberian tiger, and the official on the line had some disturbing news: a man had been attacked near Sobolonye, a small logging community located in the deep forest, sixty miles northeast of Luchegorsk. Yuri Trush was the squad leader of an Inspection Tiger unit, one of six in the territory whose purpose was to investigate forest crimes, specifically those involving tigers.
+In a quiet corner of the bustling city of Colombo, five teenagers formed an unbreakable bond over their love for adventure and their hunger for justice. Aarav, the sharp-witted leader; Meera, the fearless strategist; Ruwan, the tech genius; Priya, the empathetic healer; and Kavi, the spirited fighter, called themselves “The Gang.”
 
-     Because poachers were often involved, these included tiger attacks. As a result, this situation—whatever it might entail—was now Trush’s problem and, right away, he began preparing for the trip to Sobolonye.
+The Gang’s headquarters was an abandoned bookshop on Lotus Lane, a place steeped in mystery. It was here, while exploring the dusty shelves, they discovered an ancient, leather-bound book simply titled Gang.
 
-     Early the following morning—Saturday—Yuri Trush, along with his squadmates Alexander Gorborukov and Sasha Lazurenko, piled into a
-surplus army truck and rumbled north. Dressed in insulated fatigues and camouflage, and armed with knives, pistols, and semiautomatic rifles, the Tigers, as these inspectors are sometimes called, looked less like game wardens than like some kind of wilderness SWAT team. Their twenty-year-old truck was nicknamed a Kung, and it was the Russian army’s four-ton equivalent to the Unimog and the Humvee. Gasoline-powered,
-with a winch, four-wheel-drive, and wide waist-high tires, it is a popular vehicle in Primorye’s hinterlands.
+The book was no ordinary tome. Its pages chronicled the escapades of a legendary group of vigilantes who once roamed the city centuries ago, righting wrongs and protecting the powerless. As they read, the Gang realized they weren’t just spectators; the book was alive, its stories shifting and growing with their actions.
 
-     Along with a gun rack and brackets for
-extra fuel cans, this one had been modified to accommodate makeshift bunks, and was stocked with enough food to last four men a week.
+Inspired, they took up the mantle of the book’s previous heroes. Their first mission: to expose a corrupt businessman exploiting a nearby community. Using Meera’s plans, Ruwan’s gadgets, and their unyielding teamwork, they gathered evidence, leaked it online, and brought the culprit to justice.
+
+But the book had a secret of its own. Each success came with a price—the Gang found themselves entangled in a deeper conspiracy, one that connected them to the book's original owners and a centuries-old battle for justice.
+
+As the Gang uncovered more truths, they realized their fight wasn’t just about the city but about keeping the legacy of Gang alive.
 """,
               style: TextStyle(color: isDark ? Colors.white : TColor.text, fontSize: fontSize),
             ),
