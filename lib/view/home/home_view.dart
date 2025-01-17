@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
 
   final List<Map<String, dynamic>> topPicksArr = [
     {
-      "name": "The Dissapearance of Emila Zola",
+      "name": "The girl in the woods",
       "author": "Michael Rosen",
       "img": "assets/img/1.jpg"
     },
@@ -35,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
       "img": "assets/img/2.jpg"
     },
     {
-      "name": "The Time Travellers Handbook",
+      "name": "The young wizard",
       "author": "Stride Lottie",
       "img": "assets/img/3.jpg"
     }
