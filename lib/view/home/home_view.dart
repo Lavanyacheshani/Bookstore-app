@@ -20,11 +20,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final TextEditingController txtName = TextEditingController();
+  final TextEditingController txtEmail = TextEditingController();
 
-  TextEditingController txtName = TextEditingController();
-  TextEditingController txtEmail = TextEditingController();
-
-  List topPicksArr = [
+  final List<Map<String, dynamic>> topPicksArr = [
     {
       "name": "The Dissapearance of Emila Zola",
       "author": "Michael Rosen",
@@ -42,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
     }
   ];
 
-  List bestArr = [
+  final List<Map<String, dynamic>> bestArr = [
     {
       "name": "Fatherhood",
       "author": "by Christopher Wilson",
@@ -63,22 +62,13 @@ class _HomeViewState extends State<HomeView> {
     }
   ];
 
-  List genresArr = [
-    {
-      "name": "Graphic Novels",
-      "img": "assets/img/g1.png",
-    },
-    {
-      "name": "Graphic Novels",
-      "img": "assets/img/g1.png",
-    },
-    {
-      "name": "Graphic Novels",
-      "img": "assets/img/g1.png",
-    }
+  final List<Map<String, String>> genresArr = [
+    {"name": "Graphic Novels", "img": "assets/img/g1.png"},
+    {"name": "Graphic Novels", "img": "assets/img/g1.png"},
+    {"name": "Graphic Novels", "img": "assets/img/g1.png"}
   ];
 
-  List recentArr = [
+  final List<Map<String, dynamic>> recentArr = [
     {
       "name": "The Fatal Tree",
       "author": "by Jake Arnott",
@@ -116,40 +106,40 @@ class _HomeViewState extends State<HomeView> {
                       width: media.width,
                       height: media.width,
                       decoration: BoxDecoration(
-                          color: TColor.primary,
-                          borderRadius:
-                              BorderRadius.circular(media.width * 0.5)),
+                        color: TColor.primary,
+                        borderRadius: BorderRadius.circular(media.width * 0.5),
+                      ),
                     ),
                   ),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      height: media.width * 0.1,
-                    ),
+                    SizedBox(height: media.width * 0.1),
                     AppBar(
                       backgroundColor: Colors.transparent,
                       elevation: 0,
-                      title: Row(children: const [
-                        Text(
-                          "Our Top Picks",
-                          style: TextStyle(
+                      title: Row(
+                        children: const [
+                          Text(
+                            "Our Top Picks",
+                            style: TextStyle(
                               color: Colors.white,
                               fontSize: 22,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ]),
+                              fontWeight: FontWeight.w700,
+                            ),
+                          )
+                        ],
+                      ),
                       leading: Container(),
                       leadingWidth: 1,
                       actions: [
                         IconButton(
-                            onPressed: () {
-
-                                sideMenuScaffoldKey.currentState?.openEndDrawer();
-
-                            }, icon: const Icon(Icons.menu))
+                          onPressed: () {
+                            sideMenuScaffoldKey.currentState?.openEndDrawer();
+                          },
+                          icon: const Icon(Icons.menu),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -159,10 +149,8 @@ class _HomeViewState extends State<HomeView> {
                         itemCount: topPicksArr.length,
                         itemBuilder: (BuildContext context, int itemIndex,
                             int pageViewIndex) {
-                          var iObj = topPicksArr[itemIndex] as Map? ?? {};
-                          return TopPicksCell(
-                            iObj: iObj,
-                          );
+                          var iObj = topPicksArr[itemIndex];
+                          return TopPicksCell(iObj: iObj);
                         },
                         options: CarouselOptions(
                           autoPlay: false,
@@ -174,181 +162,111 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(children: [
-                        Text(
-                          "Bestsellers",
-                          style: TextStyle(
-                              color: TColor.text,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ]),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.9,
-                      child: ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 8),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: bestArr.length,
-                          itemBuilder: ((context, index) {
-                            var bObj = bestArr[index] as Map? ?? {};
-
-                            return GestureDetector(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => BookReadingView(bObj: bObj,) ) );
-                              },
-                              child: BestSellerCell(
-                                bObj: bObj,
-                              ),
-                            );
-                          })),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(children: [
-                        Text(
-                          "Genres",
-                          style: TextStyle(
-                              color: TColor.text,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ]),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.6,
-                      child: ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 8),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: genresArr.length,
-                          itemBuilder: ((context, index) {
-                            var bObj = genresArr[index] as Map? ?? {};
-
-                            return GenresCell(
-                              bObj: bObj,
-                              bgcolor: index % 2 == 0
-                                  ? TColor.color1
-                                  : TColor.color2,
-                            );
-                          })),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.1,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(children: [
-                        Text(
-                          "Recently Viewed",
-                          style: TextStyle(
-                              color: TColor.text,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ]),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.7,
-                      child: ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 8),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: recentArr.length,
-                          itemBuilder: ((context, index) {
-                            var bObj = recentArr[index] as Map? ?? {};
-
-                            return RecentlyCell(
-                              iObj: bObj,
-                            );
-                          })),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.1,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(children: [
-                        Text(
-                          "Monthly Newsletter",
-                          style: TextStyle(
-                              color: TColor.text,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ]),
-                    ),
-                    
-                    Container(
-                      width: double.maxFinite,
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 20),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 15),
-                      decoration: BoxDecoration(
-                          color: TColor.textbox.withOpacity(0.4),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Receive our monthly newsletter and receive updates on new stock, books and the occasional promotion.",
-                              style: TextStyle(
-                                color: TColor.subTitle,
-                                fontSize: 12,
-                              ),
-                            ),
-
-                             const SizedBox(
-                              height: 15,
-                            ),
-
-                             RoundTextField(
-                              controller: txtName,
-                              hintText: "Name",
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            RoundTextField(
-                              controller: txtEmail,
-                              hintText: "Email Address",
-                            ),
-
-                            const SizedBox(
-                              height: 15,
-                            ),
-
-                            Row(mainAxisAlignment: MainAxisAlignment.end,children: [
-                              MiniRoundButton(title: "Sign Up", onPressed: 
-                              (){
-                                 Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const SignUpView()));
-                              }, )
-                            ],)
-
-
-                          ]),
-                    ),
-                  
-
-
-                     SizedBox(
-                      height: media.width * 0.1,
-                    ),
-
+                    _buildSectionTitle("Bestsellers", TColor.text),
+                    _buildHorizontalList(media.width * 0.9, bestArr,
+                        (bObj) => BookReadingView(bObj: bObj)),
+                    _buildSectionTitle("Genres", TColor.text),
+                    _buildHorizontalList(media.width * 0.6, genresArr, null,
+                        isGenre: true),
+                    SizedBox(height: media.width * 0.1),
+                    _buildSectionTitle("Recently Viewed", TColor.text),
+                    _buildHorizontalList(media.width * 0.7, recentArr, null),
+                    SizedBox(height: media.width * 0.1),
+                    _buildSectionTitle("Monthly Newsletter", TColor.text),
+                    _buildNewsletterSection(),
                   ],
                 )
               ],
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              color: color,
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHorizontalList(
+      double height, List items, Widget Function(Map<String, dynamic>)? onTap,
+      {bool isGenre = false}) {
+    return SizedBox(
+      height: height,
+      child: ListView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 8),
+        scrollDirection: Axis.horizontal,
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          var bObj = items[index] as Map<String, dynamic>;
+          return GestureDetector(
+            onTap: onTap != null
+                ? () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => onTap(bObj)))
+                : null,
+            child: isGenre
+                ? GenresCell(
+                    bObj: bObj,
+                    bgcolor: index % 2 == 0 ? TColor.color1 : TColor.color2,
+                  )
+                : RecentlyCell(iObj: bObj),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildNewsletterSection() {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      decoration: BoxDecoration(
+        color: TColor.textbox.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Receive our monthly newsletter and receive updates on new stock, books, and the occasional promotion.",
+            style: TextStyle(
+              color: TColor.subTitle,
+              fontSize: 12,
+            ),
+          ),
+          const SizedBox(height: 15),
+          RoundTextField(controller: txtName, hintText: "Name"),
+          const SizedBox(height: 15),
+          RoundTextField(controller: txtEmail, hintText: "Email Address"),
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              MiniRoundButton(
+                title: "Sign Up",
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignUpView()),
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }

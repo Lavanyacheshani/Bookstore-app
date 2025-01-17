@@ -22,7 +22,6 @@ class _AccountViewState extends State<AccountView> {
       "img": "assets/img/p1.jpg",
       "description":
           "A captivating read that kept me hooked from start to finish!...",
-          
       "rate": 5.0
     },
     {
