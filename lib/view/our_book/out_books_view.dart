@@ -64,17 +64,16 @@ class _OurBooksViewState extends State<OurBooksView> {
 
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-              child: Text("""The Book Grocer online offers a broad and ever increasing range of discounted remainder and secondhand books.
-            
-            Our specialty is sourcing discounted books of amazing quality and passing on to our customers the best possible price.
-            We take our book buying very seriously indeed. We scour the globe and the best publishers and suppliers for the best bargains, but no book simply arrives in our warehouse simply because it's cheap. It has to be something we want to read ourselves and would reccomend to others.
-            We like to be known as the business which sells discounted books yet looks and feels like a retail bookstore.
-            
-            We are an Australian, family-owned business. We have been buying and selling books since 2000, when the first Castlebooks store opened in Kingston, ACT.
-            
-            In 2007 we opened the first Book Grocer in Brunswick, Victoria. Book Grocers can now be found in a range of locations across Victoria, NSW, and of course, Canberra.
-            
-            Our staff also love reading and recommending books to others and we are proud of the role they play in demonstrating to our customers how good discount books can be.""", textAlign: TextAlign.center , style: TextStyle(color: TColor.subTitle, fontSize: 15),),
+              child: Text("""Our specialty is sourcing discounted books of excellent quality and passing on the best possible prices to our customers.
+We take our book-buying very seriously. We search tirelessly across Sri Lanka and beyond, collaborating with top publishers and suppliers to find the best deals. However, no book finds its way into our stores simply because it's affordable. It has to be a book we would love to read ourselves and confidently recommend to others.
+
+We take pride in being a business that sells discounted books but maintains the ambiance and service quality of a traditional retail bookstore.
+
+We are a proud Sri Lankan, family-owned business. Our journey began in 2000 with the opening of our first store in Colombo.
+
+In 2007, we introduced the first Book Nook in Kandy. Since then, Book Nook stores have expanded across major cities, including Galle, Jaffna, and Colombo.
+
+Our staff share a deep love for reading and are passionate about recommending books to others. We are proud of the role they play in showing our customers just how amazing discounted books can be.""", textAlign: TextAlign.center , style: TextStyle(color: TColor.subTitle, fontSize: 15),),
             )
             
           ],
