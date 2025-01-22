@@ -9,7 +9,6 @@ import '../../common_widget/recently_cell.dart';
 import '../../common_widget/round_button.dart';
 import '../../common_widget/round_textfield.dart';
 import '../../common_widget/top_picks_cell.dart';
-import '../login/sign_up_view.dart';
 import '../main_tab/main_tab_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -253,13 +252,7 @@ class _HomeViewState extends State<HomeView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              MiniRoundButton(
-                title: "Sign Up",
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignUpView()),
-                ),
-              )
+              
             ],
           )
         ],

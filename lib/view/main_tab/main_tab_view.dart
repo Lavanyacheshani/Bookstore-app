@@ -272,7 +272,7 @@ class WishlistView extends StatelessWidget {
                   Image.asset(
                     book["image"]!,
                     width: double.infinity,
-                    height: 400,
+                    height: 550,
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(height: 10),

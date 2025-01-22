@@ -1,4 +1,3 @@
-import 'package:book_grocer/view/login/help_us_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/color_extenstion.dart';
@@ -125,7 +124,10 @@ class _SignUpViewState extends State<SignUpView> {
               RoundLineButton(
                 title: "Sign Up",
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder:  (context) => const HelpUsView()  ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpView()));
                 },
               )
             ],
