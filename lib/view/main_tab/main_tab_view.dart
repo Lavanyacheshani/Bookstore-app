@@ -199,7 +199,7 @@ class _MainTabViewState extends State<MainTabView>
               ),
               Tab(
                 icon: Icon(Icons.menu),
-                text: "Wishlist",
+                text: "Books",
               ),
               Tab(
                 icon: Icon(Icons.shopping_bag),
@@ -218,19 +218,19 @@ class WishlistView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, String>> books = [
       {
-        "title": "Rich Dad, Poor Dad",
+        "title": "The Girl In The Woods",
         "author": "Robert T. Kiyosaki",
         "price": "Rs.1250",
         "image": "assets/img/1.jpg"
       },
       {
-        "title": "The Intelligent Investor",
+        "title": "The Red House",
         "author": "Benjamin Graham",
         "price": "Rs.1500",
         "image": "assets/img/2.jpg"
       },
       {
-        "title": "Atomic Habits",
+        "title": "The Young Wizard",
         "author": "James Clear",
         "price": "Rs.800",
         "image": "assets/img/3.jpg"
@@ -245,53 +245,62 @@ class WishlistView extends StatelessWidget {
           var book = books[index];
           return Card(
             margin: const EdgeInsets.symmetric(vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 10),
-                Text(
-                  book["title"]!,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    book["title"]!,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  book["author"]!,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontStyle: FontStyle.italic,
+                  const SizedBox(height: 5),
+                  Text(
+                    book["author"]!,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Image.asset(
-                  book["image"]!,
-                  width: 120,
-                  height: 180,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  book["price"]!,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                  const SizedBox(height: 10),
+                  Image.asset(
+                    book["image"]!,
+                    width: double.infinity,
+                    height: 400,
+                    fit: BoxFit.cover,
                   ),
-                ),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle add to cart functionality
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: TColor.primary,
-                    foregroundColor: Colors.white,
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        book["price"]!,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Handle add to cart functionality
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: TColor.primary,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: const Text("Add to Cart"),
+                      ),
+                    ],
                   ),
-                  child: const Text("Add to cart"),
-                ),
-                const SizedBox(height: 10),
-              ],
+                ],
+              ),
             ),
           );
         },
