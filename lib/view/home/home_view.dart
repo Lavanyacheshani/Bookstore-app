@@ -162,17 +162,13 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                     ),
-                    _buildSectionTitle("Bestsellers", TColor.text),
+                    _buildSectionTitle("Best Sellers", TColor.text),
                     _buildHorizontalList(media.width * 0.9, bestArr,
                         (bObj) => BookReadingView(bObj: bObj)),
-                    _buildSectionTitle("Genres", TColor.text),
-                    _buildHorizontalList(media.width * 0.6, genresArr, null,
-                        isGenre: true),
-                    SizedBox(height: media.width * 0.1),
                     _buildSectionTitle("Recently Viewed", TColor.text),
                     _buildHorizontalList(media.width * 0.7, recentArr, null),
                     SizedBox(height: media.width * 0.1),
-                    _buildSectionTitle("Monthly Newsletter", TColor.text),
+                    _buildSectionTitle("Book Updates", TColor.text),
                     _buildNewsletterSection(),
                   ],
                 )
@@ -243,7 +239,7 @@ class _HomeViewState extends State<HomeView> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Receive our monthly newsletter and receive updates on new stock, books, and the occasional promotion.",
+            "Receive updates on new stock, books, and the occasional promotion.",
             style: TextStyle(
               color: TColor.subTitle,
               fontSize: 12,

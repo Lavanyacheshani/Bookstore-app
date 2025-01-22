@@ -35,7 +35,6 @@ class _MainTabViewState extends State<MainTabView>
   @override
   void initState() {
     controller = TabController(length: 4, vsync: this);
-    // TODO: implement initState
     super.initState();
   }
 
@@ -69,7 +68,6 @@ class _MainTabViewState extends State<MainTabView>
                     children: menuArr.map((mObj) {
                       var index = menuArr.indexOf(mObj);
                       return Container(
-                        // margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 15),
                         padding: const EdgeInsets.symmetric(
                             vertical: 12, horizontal: 15),
                         decoration: selectMenu == index
@@ -82,13 +80,15 @@ class _MainTabViewState extends State<MainTabView>
                             : null,
                         child: GestureDetector(
                           onTap: () {
-
-                            if(index == 1) {
-
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => const OurBooksView()  ) );
-                                sideMenuScaffoldKey.currentState?.closeEndDrawer();
-
-                            }else if (index == 7) {
+                            if (index == 1) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const OurBooksView()));
+                              sideMenuScaffoldKey.currentState
+                                  ?.closeEndDrawer();
+                            } else if (index == 7) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -97,9 +97,6 @@ class _MainTabViewState extends State<MainTabView>
                               sideMenuScaffoldKey.currentState
                                   ?.closeEndDrawer();
                             }
-
-                            //
-
                             setState(() {
                               selectMenu = index;
                             });
@@ -150,7 +147,7 @@ class _MainTabViewState extends State<MainTabView>
                       TextButton(
                         onPressed: () {},
                         child: Text(
-                          "Terns",
+                          "Terms",
                           style: TextStyle(
                               color: TColor.subTitle,
                               fontSize: 17,
@@ -181,7 +178,7 @@ class _MainTabViewState extends State<MainTabView>
       body: TabBarView(controller: controller, children: [
         const HomeView(),
         const SearchView(),
-        Container(),
+        const WishlistView(), // Updated Wishlist tab
         Container(),
       ]),
       bottomNavigationBar: BottomAppBar(
@@ -209,6 +206,95 @@ class _MainTabViewState extends State<MainTabView>
                 text: "Cart",
               ),
             ]),
+      ),
+    );
+  }
+}
+
+class WishlistView extends StatelessWidget {
+  const WishlistView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    List<Map<String, String>> books = [
+      {
+        "title": "Rich Dad, Poor Dad",
+        "author": "Robert T. Kiyosaki",
+        "price": "Rs.1250",
+        "image": "assets/img/1.jpg"
+      },
+      {
+        "title": "The Intelligent Investor",
+        "author": "Benjamin Graham",
+        "price": "Rs.1500",
+        "image": "assets/img/2.jpg"
+      },
+      {
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "price": "Rs.800",
+        "image": "assets/img/3.jpg"
+      },
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: ListView.builder(
+        itemCount: books.length,
+        itemBuilder: (context, index) {
+          var book = books[index];
+          return Card(
+            margin: const EdgeInsets.symmetric(vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 10),
+                Text(
+                  book["title"]!,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  book["author"]!,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Image.asset(
+                  book["image"]!,
+                  width: 120,
+                  height: 180,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  book["price"]!,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle add to cart functionality
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: TColor.primary,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text("Add to cart"),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
